@@ -1,6 +1,6 @@
 /* >>>> Requirements <<<< */
 /*[x] Add img {max-width: 100%; height: auto;} to style.css so images never overflow their containers on small screens.*/
-/*Add at least 1 @media (mid-width:...) query that changes at least one CSS rule at a breakpoint (e.g. switching the nav from stacked to horizontal above 768px).
+/*[x] Add at least 1 @media (mid-width:...) query that changes at least one CSS rule at a breakpoint (e.g. switching the nav from stacked to horizontal above 768px).
 /*Test in Chrome DevTools Device Toolbar at 375px (iPhone SE) - Confirm there is no horizontal scrollbar).*/
 /*Run complete 6-step audit: HTML Validation > CSS Validation > Contrast check > Lighthouse (live GitHub URL, not local) > keyboard test > quick screen reader spot check)*/
 /*Document findings in code journal*/
@@ -180,7 +180,7 @@ img {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*NGL, had to look that one up to get what I wanted.*/    
+    grid-template-columns: 1fr;    
     gap: 1.5rem;
     align-items: center;
 }
@@ -206,6 +206,11 @@ table {
     border-collapse: separate;
     text-align: center;
     table-layout: fixed;
+    min-width: 700px;
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 td:nth-child(1), td:nth-child(4) {
@@ -260,6 +265,7 @@ legend {
 .form-layout {
     display: flex;
     gap: 2rem;
+    flex-direction: row;
 }
 
 .form-column {
@@ -402,6 +408,14 @@ footer {
 /* >>>> Media <<<< */
 @media (min-width: 768px) {
     nav ul {
+        flex-direction: row;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-layout {
         flex-direction: row;
     }
 }

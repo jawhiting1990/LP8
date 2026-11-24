@@ -1,17 +1,10 @@
 /* >>>> Requirements <<<< */
-/*[x] css/style.css linked from every page; zero inline styles and zero <style> blocks anywhere in the project.*/
-/*[x] Section comments organizing the stylesheet*/
-/*[x] Minimum 4 CSS custom properties in :root, used throughout the stylesheet via var().*/
-/*[x] {box-sizing:border-box;} as the first rule*/
-/*[x] Google font linked with proper three-layer fallback stack (web font, system fallback, generic)*/
-/*[x] Full typographic scale in rem (h1, h2, h3, body, small)*/
-/*[x] Flexbox navigation with hover, focus-visible, and aria current="page" states all styled*/
-/*[x] Global *:focus-visible rule covering every interactive element*/
-/*[x] Skip navigation link that becomes visible on keyboard focus*/
-/*[x] .container centering pattern applied consistently*/
-/*[x] All color combinations pass 4:5:1 contrast- document ratios in code journal*/
-/*Lighthouse accessibility score of 80 or higher on the live GitHub Pages URL - Screenshot required*/
-/*Submit both the live GitHub Pages URL and repository URL through Blackboard*/
+/*[x] Add img {max-width: 100%; height: auto;} to style.css so images never overflow their containers on small screens.*/
+/*Add at least 1 @media (mid-width:...) query that changes at least one CSS rule at a breakpoint (e.g. switching the nav from stacked to horizontal above 768px).
+/*Test in Chrome DevTools Device Toolbar at 375px (iPhone SE) - Confirm there is no horizontal scrollbar).*/
+/*Run complete 6-step audit: HTML Validation > CSS Validation > Contrast check > Lighthouse (live GitHub URL, not local) > keyboard test > quick screen reader spot check)*/
+/*Document findings in code journal*/
+/*Lighthouse screenshot required.*/
 
 /* >>>> Colors used: <<<<*/ 
 /* #2E2824 (BG) */
@@ -114,6 +107,7 @@ nav ul {
     gap: 1.5rem;
     list-style: none;
     padding: 0;
+    flex-direction: column;
 }
 
 nav ul a {
@@ -403,4 +397,11 @@ footer {
     padding: 1rem;
     margin-top: 2rem;
     font-size: 1rem;
+}
+
+/* >>>> Media <<<< */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+    }
 }
